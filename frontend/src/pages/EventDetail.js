@@ -27,9 +27,10 @@ export async function action({params, request}){
     method:request.method
   })
   if(!response.ok){
-    throw new Response({
+    throw new Response(
+      JSON.stringify({
       message:'Could not deleted event'
-    }, {status:500})
+    }, {status:500}))
   }
   return redirect('/events')
 }
